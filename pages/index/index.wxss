@@ -66,6 +66,6 @@
     border: none;
 }
 .touchActive {
-    border: 4rpx #fff dashed;
+    /* border: 4rpx #fff dashed; */
     z-index: 400;
 }

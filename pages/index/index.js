@@ -1,5 +1,5 @@
 let index = 0,
-items = [];
+  items = [], flag=true;
 Page({
   /**
    * 页面的初始数据
@@ -64,6 +64,12 @@ Page({
     console.log(items[index])
   },
   WraptouchMove: function(e) {
+    if (flag) {
+      flag = false;
+      setTimeout(() => {
+        flag = true;
+      }, 100)
+    }
     // console.log('WraptouchMove', e)
     items[index]._lx = e.touches[0].clientX;
     items[index]._ly = e.touches[0].clientY;
@@ -101,6 +107,12 @@ Page({
   }
   ,
   oTouchMove: function (e) {
+    if (flag) {
+      flag = false;
+      setTimeout(()=>{
+        flag= true;
+      },100)
+    }
     //记录移动后的位置
     items[index]._tx = e.touches[0].clientX;
     items[index]._ty = e.touches[0].clientY;
