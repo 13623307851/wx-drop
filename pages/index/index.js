@@ -1,5 +1,6 @@
 let index = 0,
-  items = [], flag=true;
+  items = [], flag=true,
+  itemId=1;
 Page({
   /**
    * 页面的初始数据
@@ -16,7 +17,9 @@ Page({
     this.setDropItem({
       url: '/images/1.png'
     });
-
+    this.setDropItem({
+      url: '/images/1.png'
+    });
   },
   setDropItem(imgData) {
     let data = {},
@@ -28,7 +31,7 @@ Page({
         data.width = res.width;//宽度
         data.height = res.height;//高度
         data.image = imgData.url;//地址
-        data.id = 1;//id
+        data.id = ++itemId;//id
         data.top = 0;//top定位
         data.left = 0;//left定位
         //圆心坐标
@@ -37,7 +40,7 @@ Page({
         data.scale = 1;//scale缩放
         data.oScale = 1;//方向缩放
         data.rotate = 1;//旋转角度
-        data.active = true;//选中状态
+        data.active = false;//选中状态
         console.log(data)
         items[items.length] = data;
         _this.setData({
